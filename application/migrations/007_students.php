@@ -16,6 +16,10 @@ class Migration_Students extends CI_Migration {
                                 'unsigned' => TRUE,
                                 'auto_increment' => TRUE
                         ),
+                        'name' => array(
+                                'type' => 'VARCHAR',
+                                'constraint' => '100',
+                        ),
                         'address' => array(
                                 'type' => 'VARCHAR',
                                 'constraint' => '100',

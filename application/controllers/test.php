@@ -12,8 +12,9 @@ class Test extends CI_Controller {
 
 	public function index()
 	{
-		$data=array(
-			'name'=>'dipesh');
+		$data =array(
+			'name'=>'dipesh'
+			);
 		$this->load->view('test');
 	}
 
@@ -21,25 +22,25 @@ class Test extends CI_Controller {
 	{
 		$this->load->library('form_validation');
 		$master['status'] = True;
-        $data = array();
-        $master = array();
+		$data             = array();
+		$master           = array();
         $this->form_validation->set_rules('name', 'name', 'trim|required|min_length[5]|max_length[12]');
 		if ($this->form_validation->run() == True) 
 		{
 			$this->class->insert($this->insert_data());
-			$master['status'] = True;
-			$master['message']="successfully saved data";
+			$master['status']  = True;
+			$master['message'] ="successfully saved data";
 		} 
 		else 
 		{
 			$master['status'] = false;
             foreach ($_POST as $key => $value) 
             {
-                if (form_error($key) != '') 
+				if (form_error($key) != '') 
                 {
-                    $data['error_string'] = $key;
-                    $data['input_error'] = form_error($key);
-                    array_push($master, $data);
+					$data['error_string'] = $key;
+					$data['input_error']  = form_error($key);
+					array_push($master, $data);
                 }
             }
 		}
@@ -63,7 +64,7 @@ class Test extends CI_Controller {
 	{
 		$data=array(
 			'class_name'=>$this->input->post('name'),
-			'status'=>1
+			'status' =>1
 			);
 		return $data;
 	}
